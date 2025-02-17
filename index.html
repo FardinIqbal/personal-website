@@ -144,7 +144,7 @@
 <!-- Profile Section with Vanta Globe Background -->
 <section id="profile" class="min-h-screen pt-24 flex items-center justify-center px-4 opacity-0 relative">
     <div id="vanta-bg"></div>
-    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <div class="absolute  hover:text-[#B22222] inset-0 flex items-center justify-center pointer-events-none">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-96 h-96 text-gray-300 opacity-40 animate-spin-slow" fill="none"
              viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-dasharray="10,10" stroke-width="2"/>
@@ -178,7 +178,7 @@
                 </a>
             </div>
         </div>
-        <div class="absolute bottom-4 right-4">
+        <div class="absolute  hover:text-[#B22222] bottom-4 right-4">
             <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110"
                onclick="location.href='#about'"></i>
         </div>
@@ -241,7 +241,7 @@
                 </div>
             </div>
         </div>
-        <div class="absolute bottom-4 right-4">
+        <div class="absolute hover:text-[#B22222] bottom-4 right-4">
             <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110"
                onclick="location.href='#experience'"></i>
         </div>
@@ -306,7 +306,7 @@
                 </div>
             </div>
         </div>
-        <div class="absolute bottom-4 right-4">
+        <div class="absolute hover:text-[#B22222] bottom-4 right-4">
             <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110"
                onclick="location.href='#projects'"></i>
         </div>
@@ -403,7 +403,7 @@
                 </div>
             </div>
         </div>
-        <div class="absolute bottom-4 right-4">
+        <div class="absolute hover:text-[#B22222] bottom-4 right-4">
             <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110"
                onclick="location.href='#contact'"></i>
         </div>
@@ -417,29 +417,30 @@
     <div class="container mx-auto px-4 max-w-3xl relative z-10">
         <div class="p-8 rounded shadow" style="background: rgba(255,255,255,0.9);">
             <h1 class="text-3xl font-bold text-center mb-8 accent">Contact Me</h1>
-            <!-- Horizontal Contact Info Row with hover effects -->
-            <div class="flex flex-row justify-center items-center space-x-6">
-                <a href="mailto:fardin.iqbal@stonybrook.edu" target="_blank"
-                   class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105 ">
-                    <i class="fa fa-envelope fa-2x"></i>
-                    <span class="text-sm">fardin.iqbal@stonybrook.edu</span>
-                </a>
-                <a href="https://www.linkedin.com/in/fardin-iqbal-618460187/" target="_blank"
-                   class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105 ">
-                    <i class="fa fa-linkedin fa-2x"></i>
-                    <span class="text-sm">LinkedIn</span>
-                </a>
-                <a href="https://github.com/FardinIqbal" target="_blank"
-                   class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
-                    <i class="fa fa-github fa-2x"></i>
-                    <span class="text-sm">GitHub</span>
-                </a>
-                <a href="tel:(347)909-6827" target="_blank"
-                   class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105 ">
-                    <i class="fa fa-phone fa-2x"></i>
-                    <span class="text-sm">(347) 909-6827</span>
-                </a>
-            </div>
+ <!-- Contact Info Grid - 2x2 on Mobile, 1 Row on Larger Screens -->
+<div class="grid grid-cols-2 gap-6 md:flex md:justify-center">
+    <a href="mailto:fardin.iqbal@stonybrook.edu" target="_blank"
+       class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
+        <i class="fa fa-envelope fa-2x"></i>
+        <span class="text-sm">fardin.iqbal@stonybrook.edu</span>
+    </a>
+    <a href="https://www.linkedin.com/in/fardin-iqbal-618460187/" target="_blank"
+       class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
+        <i class="fa fa-linkedin fa-2x"></i>
+        <span class="text-sm">LinkedIn</span>
+    </a>
+    <a href="https://github.com/FardinIqbal" target="_blank"
+       class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
+        <i class="fa fa-github fa-2x"></i>
+        <span class="text-sm">GitHub</span>
+    </a>
+    <a href="tel:(347)909-6827" target="_blank"
+       class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
+        <i class="fa fa-phone fa-2x"></i>
+        <span class="text-sm">(347) 909-6827</span>
+    </a>
+</div>
+
             <!-- Contact Form -->
             <form action="mailto:fardin.iqbal@stonybrook.edu" method="post" enctype="text/plain"
                   class="space-y-4 bg-white p-6 rounded shadow-xl border border-dk mt-8">
@@ -471,7 +472,7 @@
 
         </div>
     </div>
-    <div class="absolute bottom-4 right-4">
+    <div class="absolute bottom-4 right-4 hover:text-[#B22222]">
         <i class="fa fa-chevron-up fa-2x cursor-pointer transition-transform duration-300 hover:scale-110"
            onclick="location.href='#profile'"></i>
     </div>
