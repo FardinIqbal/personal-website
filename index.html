@@ -1,580 +1,637 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fardin Iqbal | Professional Website</title>
-  <!-- Tailwind CSS CDN with darkMode enabled -->
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-    }
-  </script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Libre Baskerville for vintage elegance -->
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
-  <!-- Font Awesome 4.7 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
-    /* Global smooth scrolling */
-    html {
-      scroll-behavior: smooth;
-    }
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Fardin Iqbal | Professional Website</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Libre Baskerville for vintage elegance -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet"/>
+    <!-- Font Awesome 4.7 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Global smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
 
-    body {
-      font-family: 'Libre Baskerville', serif;
-    }
+        body {
+            font-family: 'Libre Baskerville', serif;
+            background: #fdfdfd;
+        }
 
-    /* Fade-in animation for sections */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+        /* Fade-in animation for sections */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    .fade-in {
-      animation: fadeIn 0.8s ease-out forwards;
-    }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
 
-    /* Ornamental rotating frame (kept as SVG) */
-    @keyframes spinSlow {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
+        /* Ornamental rotating frame (kept as SVG) */
+        @keyframes spinSlow {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
-    .animate-spin-slow {
-      animation: spinSlow 20s linear infinite;
-    }
+        .animate-spin-slow {
+            animation: spinSlow 20s linear infinite;
+        }
 
-    /* Accent color */
-    .accent {
-      color: #B22222;
-    }
+        /* Accent color */
+        .accent {
+            color: #B22222;
+        }
 
-    /* Dark border */
-    .border-dk {
-      border-color: #4b5563;
-    }
+        /* Dark border */
+        .border-dk {
+            border-color: #4b5563;
+        }
 
-    /* Vintage header pattern */
-    header {
-      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='40' height='40' fill='%23fff'/%3E%3Cpath d='M0 0L40 40M40 0L0 40' stroke='%23eee' stroke-width='0.5'/%3E%3C/svg%3E");
-    }
+        /* Vintage header pattern */
+        header {
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='40' height='40' fill='%23fff'/%3E%3Cpath d='M0 0L40 40M40 0L0 40' stroke='%23eee' stroke-width='0.5'/%3E%3C/svg%3E");
+        }
 
-    /* Profile section adjustments */
-    #profile {
-      position: relative;
-      overflow: hidden;
-    }
+        /* Profile section adjustments */
+        #profile {
+            position: relative;
+            overflow: hidden;
+        }
 
-    #vanta-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
+        #vanta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
 
-    /* Mobile menu smooth transition */
-    #mobile-menu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease;
-    }
+        /* Mobile menu smooth transition */
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
 
-    #mobile-menu.open {
-      max-height: 500px;
-    }
+        #mobile-menu.open {
+            max-height: 500px;
+        }
 
-    /* VANTA background containers – absolutely positioned behind content */
-    .vanta-net {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-  </style>
+        /* VANTA background containers – absolutely positioned behind content */
+        .vanta-net {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
 </head>
-<body class="bg-white dark:bg-black text-black dark:text-white transition-colors duration-500">
-  <!-- Header / Navigation -->
-  <header class="fixed top-0 w-full z-30 shadow-lg bg-white dark:bg-black border-b border-dk dark:border-white">
+<body class="bg-white text-black transition-colors duration-500">
+<!-- Header / Navigation -->
+<header class="fixed top-0 w-full z-30 shadow-lg bg-white border-b border-dk">
     <div class="container mx-auto flex items-center justify-between py-4 px-6 max-w-screen-xl">
-      <!-- Site Name now links to home (#profile) -->
-      <a href="#profile"
-         class="text-2xl hover:text-[#B22222] font-bold tracking-wide transition-transform duration-300 hover:scale-105">
-        Fardin Iqbal
-      </a>
-      <nav class="hidden md:flex space-x-8">
-        <a href="#profile" class="text-sm hover:scale-105 uppercase tracking-wider hover:text-[#B22222] transition">Home</a>
-        <a href="#about" class="text-sm hover:scale-105 uppercase tracking-wider hover:text-[#B22222] transition">About</a>
-        <a href="#experience" class="text-sm hover:scale-105 uppercase tracking-wider hover:text-[#B22222] transition">Experience</a>
-        <a href="#projects" class="text-sm hover:scale-105 uppercase tracking-wider hover:text-[#B22222] transition">Projects</a>
-        <a href="#contact" class="text-sm hover:scale-105 uppercase tracking-wider hover:text-[#B22222] transition">Contact</a>
-      </nav>
-      <div class="flex items-center">
-        <!-- Mobile Hamburger -->
+        <!-- Site Name now links to home (#profile) -->
+        <a href="#profile"
+           class="text-2xl hover:text-[#B22222] font-bold tracking-wide transition-transform duration-300 hover:scale-105">
+            Fardin Iqbal
+        </a>
+        <nav class="hidden md:flex space-x-8">
+            <a href="#profile" class="text-sm hover:scale-105 uppercase tracking-wider hover:text-[#B22222] transition">Home</a>
+            <a href="#about" class="text-sm hover:scale-105 uppercase tracking-wider hover:text-[#B22222] transition">About</a>
+            <a href="#experience"
+               class="text-sm hover:scale-105 uppercase tracking-wider hover:text-[#B22222] transition">Experience</a>
+            <a href="#projects"
+               class="text-sm hover:scale-105 uppercase tracking-wider hover:text-[#B22222] transition">Projects</a>
+            <a href="#contact" class="text-sm hover:scale-105 uppercase tracking-wider hover:text-[#B22222] transition">Contact</a>
+        </nav>
         <button id="hamburger" class="md:hidden focus:outline-none">
-          <i class="fa fa-bars fa-2x"></i>
+            <i class="fa fa-bars fa-2x"></i>
         </button>
-        <!-- Dark Mode Toggle Button -->
-        <button id="dark-mode-toggle" class="ml-4 focus:outline-none">
-          <i class="fa fa-moon-o fa-2x"></i>
-        </button>
-      </div>
     </div>
-    <div id="mobile-menu" class="md:hidden bg-white dark:bg-black border-t border-dk dark:border-white">
-      <nav class="flex flex-col space-y-2 p-4">
-        <a href="#profile" class="text-sm uppercase tracking-wider hover:text-[#B22222] transition" onclick="toggleMobileMenu()">Home</a>
-        <a href="#about" class="text-sm uppercase tracking-wider hover:text-[#B22222] transition" onclick="toggleMobileMenu()">About</a>
-        <a href="#experience" class="text-sm uppercase tracking-wider hover:text-[#B22222] transition" onclick="toggleMobileMenu()">Experience</a>
-        <a href="#projects" class="text-sm uppercase tracking-wider hover:text-[#B22222] transition" onclick="toggleMobileMenu()">Projects</a>
-        <a href="#contact" class="text-sm uppercase tracking-wider hover:text-[#B22222] transition" onclick="toggleMobileMenu()">Contact</a>
-      </nav>
+    <div id="mobile-menu" class="md:hidden bg-white border-t border-dk">
+        <nav class="flex flex-col space-y-2 p-4">
+            <a href="#profile" class="text-sm uppercase tracking-wider hover:text-[#B22222] transition"
+               onclick="toggleMobileMenu()">Home</a>
+            <a href="#about" class="text-sm uppercase tracking-wider hover:text-[#B22222] transition"
+               onclick="toggleMobileMenu()">About</a>
+            <a href="#experience" class="text-sm uppercase tracking-wider hover:text-[#B22222] transition"
+               onclick="toggleMobileMenu()">Experience</a>
+            <a href="#projects" class="text-sm uppercase tracking-wider hover:text-[#B22222] transition"
+               onclick="toggleMobileMenu()">Projects</a>
+            <a href="#contact" class="text-sm uppercase tracking-wider hover:text-[#B22222] transition"
+               onclick="toggleMobileMenu()">Contact</a>
+        </nav>
     </div>
-  </header>
+</header>
 
-  <!-- Profile Section with Vanta Globe Background -->
-  <section id="profile" class="min-h-screen pt-24 flex items-center justify-center px-4 opacity-0 relative">
+<!-- Profile Section with Vanta Globe Background -->
+<section id="profile" class="min-h-screen pt-24 flex items-center justify-center px-4 opacity-0 relative">
     <div id="vanta-bg"></div>
     <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-96 h-96 text-gray-300 opacity-40 animate-spin-slow" fill="none" viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-dasharray="10,10" stroke-width="2"/>
-      </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-96 h-96 text-gray-300 opacity-40 animate-spin-slow" fill="none"
+             viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-dasharray="10,10" stroke-width="2"/>
+        </svg>
     </div>
     <div class="relative z-10 flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto">
-      <div class="mb-6 md:mb-0 md:mr-8 transform transition duration-500 hover:scale-105">
-        <img src="./assets/profile-picture.png" alt="Profile picture of Fardin Iqbal" class="w-80 h-80 rounded-full object-cover shadow-2xl"/>
-      </div>
-      <div class="bg-white dark:bg-black bg-opacity-90 p-6 rounded shadow-md transition duration-300 hover:shadow-2xl">
-        <p class="text-lg">Hello, I'm</p>
-        <h1 class="text-5xl font-bold transition-transform duration-500 hover:scale-105 accent">Fardin Iqbal</h1>
-        <p class="text-2xl">Computer Science Student</p>
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6">
-          <button class="px-6 py-3 bg-black text-white border border-dk transition duration-300 hover:bg-[#B22222] hover:text-white hover:shadow-lg"
-                  onclick="window.open('./assets/Fardin_Iqbal_Resume.pdf', '_blank')">
-            Download CV
-          </button>
-          <button class="px-6 py-3 bg-white text-black border border-dk transition duration-300 hover:bg-[#B22222] hover:text-white hover:shadow-lg"
-                  onclick="window.open('#contact', '_blank')">
-            Contact Info
-          </button>
+        <div class="mb-6 md:mb-0 md:mr-8 transform transition duration-500 hover:scale-105">
+            <img src="./assets/profile-picture.png" alt="Profile picture of Fardin Iqbal"
+                 class="w-80 h-80 rounded-full object-cover shadow-2xl"/>
         </div>
+        <div class="bg-white bg-opacity-90 p-6 rounded shadow-md transition duration-300 hover:shadow-2xl">
+            <p class="text-lg">Hello, I'm</p>
+            <h1 class="text-5xl font-bold transition-transform duration-500 hover:scale-105 accent">Fardin Iqbal</h1>
+            <p class="text-2xl">Computer Science Student</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6">
+                <button class="px-6 py-3 bg-black text-white border border-dk transition duration-300 hover:bg-[#B22222] hover:text-white hover:shadow-lg"
+                        onclick="window.open('./assets/Fardin_Iqbal_Resume.pdf', '_blank')">
+                    Download CV
+                </button>
+                <button class="px-6 py-3 bg-white text-black border border-dk transition duration-300 hover:bg-[#B22222] hover:text-white hover:shadow-lg"
+                        onclick="window.open('#contact', '_blank')">
+                    Contact Info
+                </button>
+            </div>
 
         <div class="flex justify-center space-x-6 mt-6">
-          <a href="mailto:fardin.iqbal@stonybrook.edu" target="_blank" class="transition duration-300 hover:text-[#B22222] hover:scale-105">
-            <i class="fa fa-envelope fa-2x"></i>
-          </a>
-          <a href="tel:(347)909-6827" target="_blank" class="transition duration-300 hover:text-[#B22222] hover:scale-105">
-            <i class="fa fa-phone fa-2x"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/fardin-iqbal-618460187/" target="_blank" class="transition duration-300 hover:text-[#B22222] hover:scale-105">
-            <i class="fa fa-linkedin fa-2x"></i>
-          </a>
-          <a href="https://github.com/FardinIqbal" target="_blank" class="transition duration-300 hover:text-[#B22222] hover:scale-105">
-            <i class="fa fa-github fa-2x"></i>
-          </a>
+            <a href="mailto:fardin.iqbal@stonybrook.edu" target="_blank"
+               class="transition duration-300 hover:text-[#B22222] hover:scale-105">
+                <i class="fa fa-envelope fa-2x"></i>
+            </a>
+            <a href="tel:(347)909-6827" target="_blank"
+               class="transition duration-300 hover:text-[#B22222] hover:scale-105">
+                <i class="fa fa-phone fa-2x"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/fardin-iqbal-618460187/" target="_blank"
+               class="transition duration-300 hover:text-[#B22222] hover:scale-105">
+                <i class="fa fa-linkedin fa-2x"></i>
+            </a>
+            <a href="https://github.com/FardinIqbal" target="_blank"
+               class="transition duration-300 hover:text-[#B22222] hover:scale-105">
+                <i class="fa fa-github fa-2x"></i>
+            </a>
         </div>
-      </div>
+        </div>
+
+
     </div>
     <div class="absolute hover:text-[#B22222] bottom-4 right-4">
-      <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110" onclick="location.href='#about'"></i>
+        <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110"
+           onclick="location.href='#about'"></i>
     </div>
-  </section>
 
-  <!-- About Section with VANTA.NET Background -->
-  <section id="about" class="py-16 bg-gray-50 dark:bg-gray-900 text-black dark:text-white opacity-0 relative">
+</section>
+
+<!-- About Section with VANTA.NET Background -->
+<section id="about" class="py-16 bg-gray-50 text-black opacity-0 relative">
     <div id="vanta-net-about" class="vanta-net"></div>
     <div class="container mx-auto px-4 max-w-6xl relative z-10">
-      <div class="p-8 rounded shadow bg-white dark:bg-black bg-opacity-90">
-        <h1 class="text-3xl font-bold text-center mb-12 accent">About Me</h1>
-        <div class="flex flex-col md:flex-row items-center">
-          <!-- Left: Image -->
-          <div class="md:w-1/2 mb-8 md:mb-0 transform transition duration-500 hover:scale-105 hover:shadow-xl">
-            <img src="./assets/StonyBrook_01.jpg" alt="Another photo of Fardin" class="w-full rounded shadow-xl"/>
-          </div>
-          <!-- Right: Summary -->
-          <div class="md:w-1/2 md:pl-8 space-y-6">
-            <h2 class="text-xl font-bold accent mb-1">Summary</h2>
-            <p>
-              I am a dedicated Computer Science student at Stony Brook University, passionate about building impactful technologies. My goal is to become a software engineer, and I have already gained relevant professional experience in the field, along with building numerous personal projects.
-            </p>
-            <p>
-              My biggest strength is my ability to learn quickly and efficiently. Whether it's cloud computing, cybersecurity, or systems programming, I am always eager to expand my skill set.
-            </p>
-            <p>
-              I am actively looking for opportunities in software engineering, so if you're looking for a highly adaptable and self-driven developer, feel free to reach out!
-            </p>
-          </div>
+        <div class="p-8 rounded shadow bg-white bg-opacity-90">
+            <h1 class="text-3xl font-bold text-center mb-12 accent">About Me</h1>
+            <div class="flex flex-col md:flex-row items-center">
+                <!-- Left: Image -->
+                <div class="md:w-1/2 mb-8 md:mb-0 transform transition duration-500 hover:scale-105 hover:shadow-xl">
+                    <img src="./assets/StonyBrook_01.jpg" alt="Another photo of Fardin"
+                         class="w-full rounded shadow-xl"/>
+                </div>
+                <!-- Right: Summary -->
+                <div class="md:w-1/2 md:pl-8 space-y-6">
+                    <h2 class="text-xl font-bold accent mb-1">Summary</h2>
+                    <p>
+                        I am a dedicated Computer Science student at Stony Brook University, passionate about building
+                        impactful technologies. My goal is to become a software engineer, and I have already gained
+                        relevant professional experience in the field, along with building numerous personal projects.
+                    </p>
+                    <p>
+                        My biggest strength is my ability to learn quickly and efficiently. Whether it's cloud
+                        computing, cybersecurity, or systems programming, I am always eager to expand my skill set.
+                    </p>
+                    <p>
+                        I am actively looking for opportunities in software engineering, so if you're looking for a
+                        highly adaptable and self-driven developer, feel free to reach out!
+                    </p>
+                </div>
+            </div>
+            <!-- Coursework & Skills Boxes -->
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Academic Highlights Box -->
+                <div class="bg-white p-6 border border-dk rounded shadow-xl transition duration-300 hover:scale-105 hover:shadow-2xl">
+                    <h2 class="text-xl font-bold accent mb-2">Academic Highlights</h2>
+                    <p class="text-gray-800">
+                        <strong>Relevant Courses:</strong> Data Structures (Java), Foundations of Computer Science
+                        (Python), Programming Abstractions (OCaml &amp; Java), Systems Fundamentals (Linux, Git,
+                        Assembly, C), Probability &amp; Statistics (R)<br/><br/>
+                        <strong>Certifications:</strong> AWS Cloud Technical Essentials (Coursera), Introduction to
+                        Cyber Security (TryHackMe)
+                    </p>
+                </div>
+                <!-- Skills & Tools Box -->
+                <div class="bg-white p-6 border border-dk rounded shadow-xl transition duration-300 hover:scale-105 hover:shadow-2xl">
+                    <h2 class="text-xl font-bold accent mb-2">Skills &amp; Tools</h2>
+                    <p class="text-gray-800">
+                        <strong>Languages &amp; Frameworks:</strong> Python (Django, Flask, &amp; Plotly), Ruby (Rails),
+                        HTML/CSS (Tailwind), JavaScript (Node, React, &amp; Express), C# (Unity), Java (Android
+                        Studio)<br/><br/>
+                        <strong>Tools &amp; Databases:</strong> Git, GitHub, Linux, Heroku, PostgreSQL, MongoDB, Visual
+                        Studio Code, JetBrains, Airtable
+                    </p>
+                </div>
+            </div>
         </div>
-        <!-- Coursework & Skills Boxes -->
-        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Academic Highlights Box -->
-          <div class="bg-white dark:bg-black p-6 border border-dk dark:border-white rounded shadow-xl transition duration-300 hover:scale-105 hover:shadow-2xl">
-            <h2 class="text-xl font-bold accent mb-2">Academic Highlights</h2>
-            <p class="text-gray-800 dark:text-gray-300">
-              <strong>Relevant Courses:</strong> Data Structures (Java), Foundations of Computer Science (Python), Programming Abstractions (OCaml &amp; Java), Systems Fundamentals (Linux, Git, Assembly, C), Probability &amp; Statistics (R)<br/><br/>
-              <strong>Certifications:</strong> AWS Cloud Technical Essentials (Coursera), Introduction to Cyber Security (TryHackMe)
-            </p>
-          </div>
-          <!-- Skills & Tools Box -->
-          <div class="bg-white dark:bg-black p-6 border border-dk dark:border-white rounded shadow-xl transition duration-300 hover:scale-105 hover:shadow-2xl">
-            <h2 class="text-xl font-bold accent mb-2">Skills &amp; Tools</h2>
-            <p class="text-gray-800 dark:text-gray-300">
-              <strong>Languages &amp; Frameworks:</strong> Python (Django, Flask, &amp; Plotly), Ruby (Rails), HTML/CSS (Tailwind), JavaScript (Node, React, &amp; Express), C# (Unity), Java (Android Studio)<br/><br/>
-              <strong>Tools &amp; Databases:</strong> Git, GitHub, Linux, Heroku, PostgreSQL, MongoDB, Visual Studio Code, JetBrains, Airtable
-            </p>
-          </div>
+        <div class="absolute bottom-4 right-4">
+            <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110 hover:text-[#B22222]"
+               onclick="location.href='#experience'"></i>
         </div>
-      </div>
-      <div class="absolute bottom-4 right-4">
-        <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110 hover:text-[#B22222]" onclick="location.href='#experience'"></i>
-      </div>
     </div>
-  </section>
+</section>
 
-  <!-- Experience Section with VANTA.NET Background -->
-  <section id="experience" class="py-16 text-black dark:text-white opacity-0 relative">
+<!-- Experience Section with VANTA.NET Background -->
+<section id="experience" class="py-16 text-black opacity-0 relative">
     <div id="vanta-net-experience" class="vanta-net"></div>
     <div class="container mx-auto px-4 max-w-6xl relative z-10">
-      <div class="p-8 rounded shadow bg-white dark:bg-black bg-opacity-90">
-        <h1 class="text-3xl font-bold text-center mb-8 accent">Professional Experience</h1>
-        <div class="space-y-8">
-          <!-- Experience Card 1 -->
-          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded shadow-xl border border-dk dark:border-white transition duration-500 hover:scale-105 hover:shadow-2xl">
-            <h2 class="text-2xl font-bold mb-2 accent">Beyer Blinder Belle (BBB)</h2>
-            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-300 my-2">
-              <span>Design &amp; Construction Technology Intern</span>
-              <span>June 2024 – August 2024</span>
+        <div class="p-8 rounded shadow bg-white bg-opacity-90">
+            <h1 class="text-3xl font-bold text-center mb-8 accent">Professional Experience</h1>
+            <div class="space-y-8">
+                <!-- Experience Card 1 -->
+                <div class="bg-gray-50 p-6 rounded shadow-xl border border-dk transition duration-500 hover:scale-105 hover:shadow-2xl">
+                    <h2 class="text-2xl font-bold mb-2 accent">Beyer Blinder Belle (BBB)</h2>
+                    <div class="flex justify-between text-sm text-gray-600 my-2">
+                        <span>Design &amp; Construction Technology Intern</span>
+                        <span>June 2024 – August 2024</span>
+                    </div>
+                    <ul class="list-disc list-inside space-y-1 text-gray-700">
+                        <li>Automated BIM file management using Python (Tkinter GUI) to replace Excel Macros and MS
+                            Power Automate flows.
+                        </li>
+                        <li>Scheduled Python scripts with Windows Task Scheduler for enhanced reliability, complete with
+                            logging and alerts.
+                        </li>
+                        <li>Integrated SQLite and PowerBI for streamlined data storage, documentation, and meta-health
+                            dashboards.
+                        </li>
+                    </ul>
+                </div>
+                <!-- Experience Card 2 -->
+                <div class="bg-gray-50 p-6 rounded shadow-xl border border-dk transition duration-500 hover:scale-105 hover:shadow-2xl">
+                    <h2 class="text-2xl font-bold mb-2 accent">The Hardy Group</h2>
+                    <div class="flex justify-between text-sm text-gray-600 my-2">
+                        <span>Marketing Intern</span>
+                        <span>Oct 2023 – Dec 2023</span>
+                    </div>
+                    <ul class="list-disc list-inside space-y-1 text-gray-700">
+                        <li>Migrated customer data to Airtable for improved data management and accuracy.</li>
+                        <li>Analyzed duplicate records in a 13,000-client database to enhance data integrity.</li>
+                    </ul>
+                </div>
+                <!-- Experience Card 3 -->
+                <div class="bg-gray-50 p-6 rounded shadow-xl border border-dk transition duration-500 hover:scale-105 hover:shadow-2xl">
+                    <h2 class="text-2xl font-bold mb-2 accent">International Socioeconomic Laboratory (ISL) &amp;
+                        Finxerunt</h2>
+                    <div class="flex justify-between text-sm text-gray-600 my-2">
+                        <span>Web Developer</span>
+                        <span>May 2022 – Apr 2023</span>
+                    </div>
+                    <ul class="list-disc list-inside space-y-1 text-gray-700">
+                        <li>Led a Harvard-affiliated research project focused on socioeconomic issues and civic
+                            activism.
+                        </li>
+                        <li>Transitioned ISL’s website from SquareSpace to a self-hosted domain, cutting costs and
+                            boosting performance.
+                        </li>
+                        <li>Mentored a team of 10 in React, HTML, and CSS to design Finxerunt’s website.</li>
+                    </ul>
+                </div>
             </div>
-            <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
-              <li>Automated BIM file management using Python (Tkinter GUI) to replace Excel Macros and MS Power Automate flows.</li>
-              <li>Scheduled Python scripts with Windows Task Scheduler for enhanced reliability, complete with logging and alerts.</li>
-              <li>Integrated SQLite and PowerBI for streamlined data storage, documentation, and meta-health dashboards.</li>
-            </ul>
-          </div>
-          <!-- Experience Card 2 -->
-          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded shadow-xl border border-dk dark:border-white transition duration-500 hover:scale-105 hover:shadow-2xl">
-            <h2 class="text-2xl font-bold mb-2 accent">The Hardy Group</h2>
-            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-300 my-2">
-              <span>Marketing Intern</span>
-              <span>Oct 2023 – Dec 2023</span>
-            </div>
-            <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
-              <li>Migrated customer data to Airtable for improved data management and accuracy.</li>
-              <li>Analyzed duplicate records in a 13,000-client database to enhance data integrity.</li>
-            </ul>
-          </div>
-          <!-- Experience Card 3 -->
-          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded shadow-xl border border-dk dark:border-white transition duration-500 hover:scale-105 hover:shadow-2xl">
-            <h2 class="text-2xl font-bold mb-2 accent">International Socioeconomic Laboratory (ISL) &amp; Finxerunt</h2>
-            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-300 my-2">
-              <span>Web Developer</span>
-              <span>May 2022 – Apr 2023</span>
-            </div>
-            <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
-              <li>Led a Harvard-affiliated research project focused on socioeconomic issues and civic activism.</li>
-              <li>Transitioned ISL’s website from SquareSpace to a self-hosted domain, cutting costs and boosting performance.</li>
-              <li>Mentored a team of 10 in React, HTML, and CSS to design Finxerunt’s website.</li>
-            </ul>
-          </div>
         </div>
-      </div>
-      <div class="absolute bottom-4 right-4">
-        <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110 hover:text-[#B22222]" onclick="location.href='#projects'"></i>
-      </div>
+        <div class="absolute bottom-4 right-4">
+            <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110 hover:text-[#B22222]"
+               onclick="location.href='#projects'"></i>
+        </div>
     </div>
-  </section>
+</section>
 
-  <!-- Projects Section with VANTA.NET Background -->
-  <section id="projects" class="py-16 bg-gray-50 dark:bg-gray-900 text-black dark:text-white opacity-0 relative">
+<!-- Projects Section with VANTA.NET Background -->
+<section id="projects" class="py-16 bg-gray-50 text-black opacity-0 relative">
     <div id="vanta-net-projects" class="vanta-net"></div>
     <div class="container mx-auto px-4 max-w-6xl relative z-10">
-      <div class="p-8 rounded shadow bg-white dark:bg-black bg-opacity-90">
-        <h1 class="text-3xl font-bold text-center mb-8 accent">Personal Projects</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Project 1: FairShare -->
-          <div class="bg-white dark:bg-black p-6 rounded shadow-xl border border-dk dark:border-white transition duration-500 hover:scale-105 hover:shadow-2xl">
-            <img src="./assets/fairshare.jpg" alt="FairShare App Preview" class="w-full h-48 object-cover rounded mb-4"/>
-            <h2 class="text-xl font-bold mb-2 accent">FairShare</h2>
-            <p class="mb-2 text-black dark:text-white">Developed a full‑stack expense‑sharing web app with group finance management, secure user authentication, and real‑time balance tracking.</p>
-            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Ruby on Rails, Tailwind, PostgreSQL</p>
-            <div class="space-x-2">
-              <button class="px-4 py-2 border border-dk dark:border-white bg-black text-white transition duration-300 hover:bg-[#B22222] hover:text-white" onclick="window.open('https://github.com/FardinIqbal/FairShare', '_blank')">GitHub</button>
-              <button class="px-4 py-2 border border-dk dark:border-white bg-black text-white transition duration-300 hover:bg-[#B22222] hover:text-white" onclick="window.open('https://finshare-app-552abe51e905.herokuapp.com/', '_blank')">Live</button>
+        <div class="p-8 rounded shadow bg-white bg-opacity-90">
+            <h1 class="text-3xl font-bold text-center mb-8 accent">Personal Projects</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1: FairShare -->
+                <div class="bg-white p-6 rounded shadow-xl border border-dk transition duration-500 hover:scale-105 hover:shadow-2xl">
+                    <img src="./assets/fairshare.jpg" alt="FairShare App Preview"
+                         class="w-full h-48 object-cover rounded mb-4"/>
+                    <h2 class="text-xl font-bold mb-2 accent">FairShare</h2>
+                    <p class="mb-2 text-black">Developed a full‑stack expense‑sharing web app with group finance
+                        management, secure user authentication, and real‑time balance tracking.</p>
+                    <p class="text-sm text-gray-600 mb-4">Ruby on Rails, Tailwind, PostgreSQL</p>
+                    <div class="space-x-2">
+                        <button class="px-4 py-2 border border-dk bg-black text-white transition duration-300 hover:bg-[#B22222] hover:text-white"
+                                onclick="window.open('https://github.com/FardinIqbal/FairShare', '_blank')">GitHub
+                        </button>
+                        <button class="px-4 py-2 border border-dk bg-black text-white transition duration-300 hover:bg-[#B22222] hover:text-white"
+                                onclick="window.open('https://finshare-app-552abe51e905.herokuapp.com/', '_blank')">Live
+                        </button>
+                    </div>
+                </div>
+                <!-- Project 2: Spectrum Analyzer -->
+                <div class="bg-white p-6 rounded shadow-xl border border-dk transition duration-500 hover:scale-105 hover:shadow-2xl">
+                    <img src="./assets/spectrum-analyzer.png" alt="Spectrum Analyzer Preview"
+                         class="w-full h-48 object-cover rounded mb-4"/>
+                    <h2 class="text-xl font-bold mb-2 accent">Spectrum Analyzer</h2>
+                    <p class="mb-2 text-black">A 3D modeling tool that transforms raw exoplanet flux data from FITS
+                        files into interactive spectral visualizations.</p>
+                    <p class="text-sm text-gray-600 mb-4">Flask, Python, Plotly</p>
+                    <div class="space-x-2">
+                        <button class="px-4 py-2 border border-dk bg-black text-white transition duration-300 hover:bg-[#B22222] hover:text-white"
+                                onclick="window.open('https://github.com/FardinIqbal/spectrum_analyzer', '_blank')">
+                            GitHub
+                        </button>
+                        <button class="px-4 py-2 border border-dk bg-black text-white transition duration-300 hover:bg-[#B22222] hover:text-white"
+                                onclick="window.open('https://spectrum-analyzer-55f97c211e3e.herokuapp.com/', '_blank')">
+                            Live
+                        </button>
+                    </div>
+                </div>
+                <!-- Project 3: Reddit Clone -->
+                <div class="bg-white p-6 rounded shadow-xl border border-dk transition duration-500 hover:scale-105 hover:shadow-2xl">
+                    <img src="./assets/reddit.jpg" alt="Reddit Clone Preview"
+                         class="w-full h-48 object-cover rounded mb-4"/>
+                    <h2 class="text-xl font-bold mb-2 accent">Reddit Clone</h2>
+                    <p class="mb-2 text-black">A full‑stack Reddit‑inspired platform with real‑time updates,
+                        authentication, and nested comments.</p>
+                    <p class="text-sm text-gray-600 mb-4">React, Node.js, MongoDB</p>
+                    <div class="space-x-2">
+                        <button class="px-4 py-2 border border-dk bg-black text-white transition duration-300 hover:bg-[#B22222] hover:text-white"
+                                onclick="window.open('https://github.com/sbu-ckane-f24-cse316-pa01org/project-the-acustics', '_blank')">
+                            GitHub
+                        </button>
+                    </div>
+                </div>
+                <!-- Project 4: Multiplayer Projectile Shooter Game -->
+                <div class="bg-white p-6 rounded shadow-xl border border-dk transition duration-300 hover:scale-105 hover:shadow-2xl">
+                    <img src="./assets/unity.jpeg" alt="Multiplayer Shooter Game Preview"
+                         class="w-full h-48 object-cover rounded mb-4"/>
+                    <h2 class="text-xl font-bold mb-2 accent">Multiplayer Projectile Shooter Game</h2>
+                    <p class="mb-2 text-black">A real‑time multiplayer shooter featuring advanced physics‑based
+                        projectile mechanics and cross‑device matchmaking.</p>
+                    <p class="text-sm text-gray-600 mb-4">Unity, C#</p>
+                    <div class="space-x-2">
+                        <button class="px-4 py-2 border border-dk bg-black text-white transition duration-300 hover:bg-[#B22222] hover:text-white"
+                                onclick="window.open('https://iqbalf1.itch.io/snowball-fight', '_blank')">Live
+                        </button>
+                    </div>
+                </div>
+                <!-- Project 5: Cold Caller -->
+                <div class="md:col-span-2 flex justify-center">
+                    <div class="bg-white p-6 rounded shadow-xl border border-dk transition duration-300 hover:scale-105 hover:shadow-2xl w-full md:w-1/2">
+                        <img src="./assets/cold-caller.png" alt="Cold Caller App Preview"
+                             class="w-full h-48 object-cover rounded mb-4"/>
+                        <h2 class="text-xl font-bold mb-2 text-center accent">Cold Caller</h2>
+                        <p class="mb-2 text-center text-black">An Android app for teachers to randomly call on students,
+                            track participation, and manage class sessions.</p>
+                        <p class="text-sm text-gray-600 mb-4 text-center">Java, Android Studio, Firebase</p>
+                        <div class="flex justify-center space-x-2">
+                            <button class="px-4 py-2 border border-dk bg-black text-white transition duration-300 hover:bg-[#B22222] hover:text-white"
+                                    onclick="window.open('https://github.com/FardinIqbal/Cold-Caller', '_blank')">GitHub
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <!-- Project 2: Spectrum Analyzer -->
-          <div class="bg-white dark:bg-black p-6 rounded shadow-xl border border-dk dark:border-white transition duration-500 hover:scale-105 hover:shadow-2xl">
-            <img src="./assets/spectrum-analyzer.png" alt="Spectrum Analyzer Preview" class="w-full h-48 object-cover rounded mb-4"/>
-            <h2 class="text-xl font-bold mb-2 accent">Spectrum Analyzer</h2>
-            <p class="mb-2 text-black dark:text-white">A 3D modeling tool that transforms raw exoplanet flux data from FITS files into interactive spectral visualizations.</p>
-            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Flask, Python, Plotly</p>
-            <div class="space-x-2">
-              <button class="px-4 py-2 border border-dk dark:border-white bg-black text-white transition duration-300 hover:bg-[#B22222] hover:text-white" onclick="window.open('https://github.com/FardinIqbal/spectrum_analyzer', '_blank')">GitHub</button>
-              <button class="px-4 py-2 border border-dk dark:border-white bg-black text-white transition duration-300 hover:bg-[#B22222] hover:text-white" onclick="window.open('https://spectrum-analyzer-55f97c211e3e.herokuapp.com/', '_blank')">Live</button>
-            </div>
-          </div>
-          <!-- Project 3: Reddit Clone -->
-          <div class="bg-white dark:bg-black p-6 rounded shadow-xl border border-dk dark:border-white transition duration-500 hover:scale-105 hover:shadow-2xl">
-            <img src="./assets/reddit.jpg" alt="Reddit Clone Preview" class="w-full h-48 object-cover rounded mb-4"/>
-            <h2 class="text-xl font-bold mb-2 accent">Reddit Clone</h2>
-            <p class="mb-2 text-black dark:text-white">A full‑stack Reddit‑inspired platform with real‑time updates, authentication, and nested comments.</p>
-            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">React, Node.js, MongoDB</p>
-            <div class="space-x-2">
-              <button class="px-4 py-2 border border-dk dark:border-white bg-black text-white transition duration-300 hover:bg-[#B22222] hover:text-white" onclick="window.open('https://github.com/sbu-ckane-f24-cse316-pa01org/project-the-acustics', '_blank')">GitHub</button>
-            </div>
-          </div>
-          <!-- Project 4: Multiplayer Projectile Shooter Game -->
-          <div class="bg-white dark:bg-black p-6 rounded shadow-xl border border-dk dark:border-white transition duration-300 hover:scale-105 hover:shadow-2xl">
-            <img src="./assets/unity.jpeg" alt="Multiplayer Shooter Game Preview" class="w-full h-48 object-cover rounded mb-4"/>
-            <h2 class="text-xl font-bold mb-2 accent">Multiplayer Projectile Shooter Game</h2>
-            <p class="mb-2 text-black dark:text-white">A real‑time multiplayer shooter featuring advanced physics‑based projectile mechanics and cross‑device matchmaking.</p>
-            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Unity, C#</p>
-            <div class="space-x-2">
-              <button class="px-4 py-2 border border-dk dark:border-white bg-black text-white transition duration-300 hover:bg-[#B22222] hover:text-white" onclick="window.open('https://iqbalf1.itch.io/snowball-fight', '_blank')">Live</button>
-            </div>
-          </div>
-          <!-- Project 5: Cold Caller -->
-          <div class="md:col-span-2 flex justify-center">
-            <div class="bg-white dark:bg-black p-6 rounded shadow-xl border border-dk dark:border-white transition duration-300 hover:scale-105 hover:shadow-2xl w-full md:w-1/2">
-              <img src="./assets/cold-caller.png" alt="Cold Caller App Preview" class="w-full h-48 object-cover rounded mb-4"/>
-              <h2 class="text-xl font-bold mb-2 text-center accent">Cold Caller</h2>
-              <p class="mb-2 text-center text-black dark:text-white">An Android app for teachers to randomly call on students, track participation, and manage class sessions.</p>
-              <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 text-center">Java, Android Studio, Firebase</p>
-              <div class="flex justify-center space-x-2">
-                <button class="px-4 py-2 border border-dk dark:border-white bg-black text-white transition duration-300 hover:bg-[#B22222] hover:text-white" onclick="window.open('https://github.com/FardinIqbal/Cold-Caller', '_blank')">GitHub</button>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-      <div class="absolute bottom-4 right-4">
-        <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110 hover:text-[#B22222]" onclick="location.href='#contact'"></i>
-      </div>
+        <div class="absolute bottom-4 right-4">
+            <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110 hover:text-[#B22222]"
+               onclick="location.href='#contact'"></i>
+        </div>
     </div>
-  </section>
+</section>
 
-  <!-- Contact Section with VANTA.BIRDS Effect -->
-  <section id="contact" class="py-16 bg-gray-50 dark:bg-gray-900 text-black dark:text-white opacity-0 relative">
+<!-- Contact Section with VANTA.BIRDS Effect -->
+<section id="contact" class="py-16 bg-gray-50 text-black opacity-0 relative">
     <div id="vanta-net-contact" class="vanta-net"></div>
     <div class="container mx-auto px-4 max-w-3xl relative z-10">
-      <div class="p-8 rounded shadow bg-white dark:bg-black bg-opacity-90">
-        <h1 class="text-3xl font-bold text-center mb-8 accent">Contact Me</h1>
-        <!-- Contact Info Grid -->
-        <div class="grid grid-cols-2 gap-6 md:flex md:justify-center">
-          <a href="mailto:fardin.iqbal@stonybrook.edu" target="_blank" class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
-            <i class="fa fa-envelope fa-2x"></i>
-            <span class="text-sm">fardin.iqbal@stonybrook.edu</span>
-          </a>
-          <a href="https://www.linkedin.com/in/fardin-iqbal-618460187/" target="_blank" class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
-            <i class="fa fa-linkedin fa-2x"></i>
-            <span class="text-sm">LinkedIn</span>
-          </a>
-          <a href="https://github.com/FardinIqbal" target="_blank" class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
-            <i class="fa fa-github fa-2x"></i>
-            <span class="text-sm">GitHub</span>
-          </a>
-          <a href="tel:(347)909-6827" target="_blank" class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
-            <i class="fa fa-phone fa-2x"></i>
-            <span class="text-sm">(347) 909-6827</span>
-          </a>
+        <div class="p-8 rounded shadow bg-white bg-opacity-90">
+            <h1 class="text-3xl font-bold text-center mb-8 accent">Contact Me</h1>
+            <!-- Contact Info Grid -->
+            <div class="grid grid-cols-2 gap-6 md:flex md:justify-center">
+                <a href="mailto:fardin.iqbal@stonybrook.edu" target="_blank"
+                   class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
+                    <i class="fa fa-envelope fa-2x"></i>
+                    <span class="text-sm">fardin.iqbal@stonybrook.edu</span>
+                </a>
+                <a href="https://www.linkedin.com/in/fardin-iqbal-618460187/" target="_blank"
+                   class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
+                    <i class="fa fa-linkedin fa-2x"></i>
+                    <span class="text-sm">LinkedIn</span>
+                </a>
+                <a href="https://github.com/FardinIqbal" target="_blank"
+                   class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
+                    <i class="fa fa-github fa-2x"></i>
+                    <span class="text-sm">GitHub</span>
+                </a>
+                <a href="tel:(347)909-6827" target="_blank"
+                   class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
+                    <i class="fa fa-phone fa-2x"></i>
+                    <span class="text-sm">(347) 909-6827</span>
+                </a>
+            </div>
+            <!-- Contact Form -->
+            <form action="mailto:fardin.iqbal@stonybrook.edu" method="post" enctype="text/plain"
+                  class="space-y-4 bg-white p-6 rounded shadow-xl border border-dk mt-8">
+                <div>
+                    <label for="name" class="block mb-1 font-bold">Name</label>
+                    <input type="text" id="name" name="name" required
+                           class="w-full px-3 py-2 border border-dk rounded focus:outline-none focus:border-[#B22222] focus:ring-[#B22222] focus:ring-1 transition duration-300 bg-white text-black"/>
+                </div>
+                <div>
+                    <label for="email" class="block mb-1 font-bold">Email</label>
+                    <input type="email" id="email" name="email" required
+                           class="w-full px-3 py-2 border border-dk rounded focus:outline-none focus:border-[#B22222] focus:ring-[#B22222] focus:ring-1 transition duration-300 bg-white text-black"/>
+                </div>
+                <div>
+                    <label for="subject" class="block mb-1 font-bold">Subject</label>
+                    <input type="text" id="subject" name="subject" required
+                           class="w-full px-3 py-2 border border-dk rounded focus:outline-none focus:border-[#B22222] focus:ring-[#B22222] focus:ring-1 transition duration-300 bg-white text-black"/>
+                </div>
+                <div>
+                    <label for="message" class="block mb-1 font-bold">Message</label>
+                    <textarea id="message" name="message" rows="7" required
+                              class="w-full px-3 py-2 border border-dk rounded focus:outline-none focus:border-[#B22222] focus:ring-[#B22222] focus:ring-1 transition duration-300 bg-white text-black"></textarea>
+                </div>
+                <button id="sendMessageBtn" type="submit"
+                        class="w-full px-4 py-2 bg-black text-white border border-dk transition duration-300 hover:bg-[#B22222] hover:text-white hover:shadow-lg">
+                    Send Message
+                </button>
+            </form>
         </div>
-        <!-- Contact Form -->
-        <form action="mailto:fardin.iqbal@stonybrook.edu" method="post" enctype="text/plain" class="space-y-4 bg-white dark:bg-black p-6 rounded shadow-xl border border-dk dark:border-white mt-8">
-          <div>
-            <label for="name" class="block mb-1 font-bold">Name</label>
-            <input type="text" id="name" name="name" required class="w-full px-3 py-2 border border-dk dark:border-white rounded focus:outline-none focus:border-[#B22222] focus:ring-[#B22222] focus:ring-1 transition duration-300 bg-white dark:bg-black text-black dark:text-white"/>
-          </div>
-          <div>
-            <label for="email" class="block mb-1 font-bold">Email</label>
-            <input type="email" id="email" name="email" required class="w-full px-3 py-2 border border-dk dark:border-white rounded focus:outline-none focus:border-[#B22222] focus:ring-[#B22222] focus:ring-1 transition duration-300 bg-white dark:bg-black text-black dark:text-white"/>
-          </div>
-          <div>
-            <label for="subject" class="block mb-1 font-bold">Subject</label>
-            <input type="text" id="subject" name="subject" required class="w-full px-3 py-2 border border-dk dark:border-white rounded focus:outline-none focus:border-[#B22222] focus:ring-[#B22222] focus:ring-1 transition duration-300 bg-white dark:bg-black text-black dark:text-white"/>
-          </div>
-          <div>
-            <label for="message" class="block mb-1 font-bold">Message</label>
-            <textarea id="message" name="message" rows="7" required class="w-full px-3 py-2 border border-dk dark:border-white rounded focus:outline-none focus:border-[#B22222] focus:ring-[#B22222] focus:ring-1 transition duration-300 bg-white dark:bg-black text-black dark:text-white"></textarea>
-          </div>
-          <button id="sendMessageBtn" type="submit" class="w-full px-4 py-2 bg-black dark:bg-white text-white dark:text-black border border-dk dark:border-white transition duration-300 hover:bg-[#B22222] hover:text-white hover:shadow-lg">
-            Send Message
-          </button>
-        </form>
-      </div>
     </div>
     <div class="absolute bottom-4 right-4">
-      <i class="fa fa-chevron-up fa-2x cursor-pointer transition-transform duration-300 hover:scale-110 hover:text-[#B22222]" onclick="location.href='#profile'"></i>
+        <i class="fa fa-chevron-up fa-2x cursor-pointer transition-transform duration-300 hover:scale-110 hover:text-[#B22222]"
+           onclick="location.href='#profile'"></i>
     </div>
-  </section>
+</section>
 
-  <!-- Footer Section -->
-  <footer class="bg-white dark:bg-black text-black dark:text-white py-4 border-t border-dk dark:border-white">
+<!-- Footer Section -->
+<footer class="bg-white text-black py-4 border-t border-dk">
     <div class="container mx-auto px-4 text-center">
-      <nav class="mb-2">
-        <ul class="flex justify-center space-x-4">
-          <li><a href="#about" class="hover:text-[#B22222] hover:scale-105 transition duration-300">About</a></li>
-          <li><a href="#experience" class="hover:text-[#B22222] hover:scale-105 transition duration-300">Experience</a></li>
-          <li><a href="#projects" class="hover:text-[#B22222] hover:scale-105 transition duration-300">Projects</a></li>
-          <li><a href="#contact" class="hover:text-[#B22222] hover:scale-105 transition duration-300">Contact</a></li>
-        </ul>
-      </nav>
-      <p>&copy; 2025 Fardin Iqbal. All Rights Reserved.</p>
+        <nav class="mb-2">
+            <ul class="flex justify-center space-x-4">
+                <li><a href="#about" class="hover:text-[#B22222] hover:scale-105 transition duration-300">About</a></li>
+                <li><a href="#experience" class="hover:text-[#B22222] hover:scale-105 transition duration-300">Experience</a>
+                </li>
+                <li><a href="#projects"
+                       class="hover:text-[#B22222] hover:scale-105 transition duration-300">Projects</a></li>
+                <li><a href="#contact" class="hover:text-[#B22222] hover:scale-105 transition duration-300">Contact</a>
+                </li>
+            </ul>
+        </nav>
+        <p>&copy; 2025 Fardin Iqbal. All Rights Reserved.</p>
     </div>
-  </footer>
+</footer>
 
-  <!-- Inline JavaScript for Interactivity -->
-  <script>
+<!-- Inline JavaScript for Interactivity -->
+<script>
     // Mobile Hamburger Menu Toggle with smooth transition
     const hamburger = document.getElementById("hamburger");
     const mobileMenu = document.getElementById("mobile-menu");
     hamburger.addEventListener("click", () => {
-      mobileMenu.classList.toggle("open");
+        mobileMenu.classList.toggle("open");
     });
 
     function toggleMobileMenu() {
-      mobileMenu.classList.remove("open");
+        mobileMenu.classList.remove("open");
     }
 
     // Fade in sections on load
     window.addEventListener("load", () => {
-      const sections = document.querySelectorAll("section");
-      sections.forEach((section, index) => {
-        setTimeout(() => {
-          section.classList.add("fade-in");
-          section.classList.remove("opacity-0");
-        }, index * 200);
-      });
+        const sections = document.querySelectorAll("section");
+        sections.forEach((section, index) => {
+            setTimeout(() => {
+                section.classList.add("fade-in");
+                section.classList.remove("opacity-0");
+            }, index * 200);
+        });
     });
+</script>
 
-    // Dark Mode Toggle
-    const darkModeToggle = document.getElementById("dark-mode-toggle");
-    darkModeToggle.addEventListener("click", () => {
-      document.documentElement.classList.toggle("dark");
-      // Toggle icon between moon and sun
-      const icon = darkModeToggle.querySelector("i");
-      if (document.documentElement.classList.contains("dark")) {
-        icon.classList.remove("fa-moon-o");
-        icon.classList.add("fa-sun-o");
-      } else {
-        icon.classList.remove("fa-sun-o");
-        icon.classList.add("fa-moon-o");
-      }
-    });
-  </script>
-
-  <!-- VANTA Globe Effect for Profile Section -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
-  <script>
+<!-- VANTA Globe Effect for Profile Section -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+<script>
     VANTA.GLOBE({
-      el: "#vanta-bg",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: true,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      backgroundColor: 0xffffff,
-      color: 0x000000,
-      color2: 0x000000,
-      size: 1.00
+        el: "#vanta-bg",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: true,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        backgroundColor: 0xffffff,
+        color: 0x000000,
+        color2: 0x000000,
+        size: 1.00
     });
-  </script>
+</script>
 
-  <!-- VANTA.NET Effects for About, Experience, and Projects Sections -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
-  <script>
+<!-- VANTA.NET Effects for About, Experience, and Projects Sections -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+<script>
     VANTA.NET({
-      el: "#vanta-net-about",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: true,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 0.75,
-      points: 8.00,
-      maxDistance: 20.00,
-      spacing: 15.00,
-      showDots: false,
-      color: 0x000000,
-      backgroundColor: 0xffffff
-    });
-
-    VANTA.NET({
-      el: "#vanta-net-experience",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: true,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 0.75,
-      points: 8.00,
-      maxDistance: 18.00,
-      spacing: 16.00,
-      showDots: false,
-      color: 0x000000,
-      backgroundColor: 0xffffff
+        el: "#vanta-net-about",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: true,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 0.75,
+        points: 8.00,
+        maxDistance: 20.00,
+        spacing: 15.00,
+        showDots: false,
+        color: 0x000000,
+        backgroundColor: 0xffffff
     });
 
     VANTA.NET({
-      el: "#vanta-net-projects",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: true,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 0.75,
-      points: 8.00,
-      maxDistance: 18.00,
-      spacing: 16.00,
-      showDots: false,
-      color: 0x000000,
-      backgroundColor: 0xffffff
+        el: "#vanta-net-experience",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: true,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 0.75,
+        points: 8.00,
+        maxDistance: 18.00,
+        spacing: 16.00,
+        showDots: false,
+        color: 0x000000,
+        backgroundColor: 0xffffff
     });
-  </script>
 
-  <!-- VANTA.BIRDS Effect for Contact Section -->
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
-  <script>
+    VANTA.NET({
+        el: "#vanta-net-projects",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: true,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 0.75,
+        points: 8.00,
+        maxDistance: 18.00,
+        spacing: 16.00,
+        showDots: false,
+        color: 0x000000,
+        backgroundColor: 0xffffff
+    });
+</script>
+
+<!-- VANTA.BIRDS Effect for Contact Section -->
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+<script>
     VANTA.BIRDS({
-      el: "#vanta-net-contact",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: true,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      backgroundColor: 0xffffff,
-      color1: 0xB22222,
-      color2: 0xff6347,
-      colorMode: "lerp",
-      birdSize: 1.2,
-      wingSpan: 60.00,
-      speedLimit: 1,
-      alignment: 1.00,
-      cohesion: 1.0,
-      quantity: 3.0,
-      separation: 100.00
+        el: "#vanta-net-contact",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: true,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        backgroundColor: 0xffffff,
+        color1: 0xB22222,
+        color2: 0xff6347,
+        colorMode: "lerp",
+        birdSize: 1.2,
+        wingSpan: 60.00,
+        speedLimit: 1,
+        alignment: 1.00,
+        cohesion: 1.0,
+        quantity: 3.0,
+        separation: 100.00
     });
-  </script>
+</script>
 </body>
 </html>
