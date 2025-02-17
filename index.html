@@ -105,20 +105,20 @@
 </head>
 <body class="bg-white text-black transition-colors duration-500">
 <!-- Header / Navigation -->
-<header class="fixed top-0 w-full z-20 shadow-md bg-white border-b border-dk">
-    <div class="container mx-auto flex items-center justify-between py-4 px-6">
+<header class="fixed top-0 w-full z-30 shadow-lg bg-white border-b border-dk">
+    <div class="container mx-auto flex items-center justify-between py-4 px-6 max-w-screen-xl">
         <!-- Site Name now links to home (#profile) -->
         <a href="#profile"
-           class="text-2xl hover:text-[#B22222] font-bold tracking-wide transition-transform duration-300 hover:scale-105 ">
+           class="text-2xl hover:text-[#B22222] font-bold tracking-wide transition-transform duration-300 hover:scale-105">
             Fardin Iqbal
         </a>
         <nav class="hidden md:flex space-x-8">
             <a href="#profile" class="text-sm hover:scale-105 uppercase tracking-wider hover:text-[#B22222] transition">Home</a>
-            <a href="#about" class="text-sm hover:scale-105 uppercase tracking-wider hover:text-[#B22222]  transition">About</a>
+            <a href="#about" class="text-sm hover:scale-105 uppercase tracking-wider hover:text-[#B22222] transition">About</a>
             <a href="#experience"
-               class="text-sm hover:scale-105 uppercase tracking-wider hover:text-[#B22222]  transition">Experience</a>
+               class="text-sm hover:scale-105 uppercase tracking-wider hover:text-[#B22222] transition">Experience</a>
             <a href="#projects"
-               class="text-sm hover:scale-105 uppercase tracking-wider hover:text-[#B22222]  transition">Projects</a>
+               class="text-sm hover:scale-105 uppercase tracking-wider hover:text-[#B22222] transition">Projects</a>
             <a href="#contact" class="text-sm hover:scale-105 uppercase tracking-wider hover:text-[#B22222] transition">Contact</a>
         </nav>
         <button id="hamburger" class="md:hidden focus:outline-none">
@@ -144,14 +144,14 @@
 <!-- Profile Section with Vanta Globe Background -->
 <section id="profile" class="min-h-screen pt-24 flex items-center justify-center px-4 opacity-0 relative">
     <div id="vanta-bg"></div>
-    <div class="absolute  hover:text-[#B22222] inset-0 flex items-center justify-center pointer-events-none">
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-96 h-96 text-gray-300 opacity-40 animate-spin-slow" fill="none"
              viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-dasharray="10,10" stroke-width="2"/>
         </svg>
     </div>
     <div class="relative z-10 flex flex-col md:flex-row items-center justify-center w-full max-w-6xl mx-auto">
-        <div class="mb-6 md:mb-0 md:mr-8 transform transition duration-500 hover:scale-105 ">
+        <div class="mb-6 md:mb-0 md:mr-8 transform transition duration-500 hover:scale-105">
             <img src="./assets/profile-picture.png" alt="Profile picture of Fardin Iqbal"
                  class="w-80 h-80 rounded-full object-cover shadow-2xl"/>
         </div>
@@ -159,37 +159,52 @@
             <p class="text-lg">Hello, I'm</p>
             <h1 class="text-5xl font-bold transition-transform duration-500 hover:scale-105 accent">Fardin Iqbal</h1>
             <p class="text-2xl">Computer Science Student</p>
-            <div class="space-x-4 mt-6">
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6">
                 <button class="px-6 py-3 bg-black text-white border border-dk transition duration-300 hover:bg-[#B22222] hover:text-white hover:shadow-lg"
-                        onclick="window.open('./assets/Fardin_Iqbal_Resume.pdf', '_blank')">Download CV
+                        onclick="window.open('./assets/Fardin_Iqbal_Resume.pdf', '_blank')">
+                    Download CV
                 </button>
                 <button class="px-6 py-3 bg-white text-black border border-dk transition duration-300 hover:bg-[#B22222] hover:text-white hover:shadow-lg"
-                        onclick="window.open('#contact', '_blank')">Contact Info
+                        onclick="window.open('#contact', '_blank')">
+                    Contact Info
                 </button>
             </div>
-            <div class="flex justify-center md:justify-start space-x-6 mt-6">
-                <a href="https://www.linkedin.com/in/fardin-iqbal-618460187/" target="_blank"
-                   class="transition duration-300 hover:text-[#B22222] hover:scale-105">
-                    <i class="fa fa-linkedin fa-2x"></i>
-                </a>
-                <a href="https://github.com/FardinIqbal" target="_blank"
-                   class="transition duration-300 hover:text-[#B22222] hover:scale-105">
-                    <i class="fa fa-github fa-2x"></i>
-                </a>
-            </div>
         </div>
-        <div class="absolute  hover:text-[#B22222] bottom-4 right-4">
-            <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110"
-               onclick="location.href='#about'"></i>
+
+        <div class="flex justify-center space-x-6 mt-6">
+            <a href="mailto:fardin.iqbal@stonybrook.edu" target="_blank"
+               class="transition duration-300 hover:text-[#B22222] hover:scale-105">
+                <i class="fa fa-envelope fa-2x"></i>
+            </a>
+            <a href="tel:(347)909-6827" target="_blank"
+               class="transition duration-300 hover:text-[#B22222] hover:scale-105">
+                <i class="fa fa-phone fa-2x"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/fardin-iqbal-618460187/" target="_blank"
+               class="transition duration-300 hover:text-[#B22222] hover:scale-105">
+                <i class="fa fa-linkedin fa-2x"></i>
+            </a>
+            <a href="https://github.com/FardinIqbal" target="_blank"
+               class="transition duration-300 hover:text-[#B22222] hover:scale-105">
+                <i class="fa fa-github fa-2x"></i>
+            </a>
         </div>
+
+
+    </div>
+    <div class="absolute hover:text-[#B22222] bottom-4 right-4">
+        <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110"
+           onclick="location.href='#about'"></i>
+    </div>
+
     </div>
 </section>
 
-<!-- About Section with its own VANTA.NET -->
+<!-- About Section with VANTA.NET Background -->
 <section id="about" class="py-16 bg-gray-50 text-black opacity-0 relative">
     <div id="vanta-net-about" class="vanta-net"></div>
     <div class="container mx-auto px-4 max-w-6xl relative z-10">
-        <div class="p-8 rounded shadow" style="background: rgba(255,255,255,0.9);">
+        <div class="p-8 rounded shadow bg-white bg-opacity-90">
             <h1 class="text-3xl font-bold text-center mb-12 accent">About Me</h1>
             <div class="flex flex-col md:flex-row items-center">
                 <!-- Left: Image -->
@@ -199,7 +214,7 @@
                 </div>
                 <!-- Right: Summary -->
                 <div class="md:w-1/2 md:pl-8 space-y-6">
-                    <h2 class="text-xl font-bold accent mb-1 accent">Summary</h2>
+                    <h2 class="text-xl font-bold accent mb-1">Summary</h2>
                     <p>
                         I am a dedicated Computer Science student at Stony Brook University, passionate about building
                         impactful technologies. My goal is to become a software engineer, and I have already gained
@@ -219,7 +234,7 @@
             <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Academic Highlights Box -->
                 <div class="bg-white p-6 border border-dk rounded shadow-xl transition duration-300 hover:scale-105 hover:shadow-2xl">
-                    <h2 class="text-xl font-bold accent mb-2 accent">Academic Highlights</h2>
+                    <h2 class="text-xl font-bold accent mb-2">Academic Highlights</h2>
                     <p class="text-gray-800">
                         <strong>Relevant Courses:</strong> Data Structures (Java), Foundations of Computer Science
                         (Python), Programming Abstractions (OCaml &amp; Java), Systems Fundamentals (Linux, Git,
@@ -230,7 +245,7 @@
                 </div>
                 <!-- Skills & Tools Box -->
                 <div class="bg-white p-6 border border-dk rounded shadow-xl transition duration-300 hover:scale-105 hover:shadow-2xl">
-                    <h2 class="text-xl font-bold accent mb-2 accent">Skills &amp; Tools</h2>
+                    <h2 class="text-xl font-bold accent mb-2">Skills &amp; Tools</h2>
                     <p class="text-gray-800">
                         <strong>Languages &amp; Frameworks:</strong> Python (Django, Flask, &amp; Plotly), Ruby (Rails),
                         HTML/CSS (Tailwind), JavaScript (Node, React, &amp; Express), C# (Unity), Java (Android
@@ -241,18 +256,18 @@
                 </div>
             </div>
         </div>
-        <div class="absolute hover:text-[#B22222] bottom-4 right-4">
-            <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110"
+        <div class="absolute bottom-4 right-4">
+            <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110 hover:text-[#B22222]"
                onclick="location.href='#experience'"></i>
         </div>
     </div>
 </section>
 
-<!-- Experience Section with its own VANTA.NET -->
+<!-- Experience Section with VANTA.NET Background -->
 <section id="experience" class="py-16 text-black opacity-0 relative">
     <div id="vanta-net-experience" class="vanta-net"></div>
     <div class="container mx-auto px-4 max-w-6xl relative z-10">
-        <div class="p-8 rounded shadow" style="background: rgba(255,255,255,0.9);">
+        <div class="p-8 rounded shadow bg-white bg-opacity-90">
             <h1 class="text-3xl font-bold text-center mb-8 accent">Professional Experience</h1>
             <div class="space-y-8">
                 <!-- Experience Card 1 -->
@@ -306,18 +321,18 @@
                 </div>
             </div>
         </div>
-        <div class="absolute hover:text-[#B22222] bottom-4 right-4">
-            <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110"
+        <div class="absolute bottom-4 right-4">
+            <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110 hover:text-[#B22222]"
                onclick="location.href='#projects'"></i>
         </div>
     </div>
 </section>
 
-<!-- Projects Section with its own VANTA.NET -->
+<!-- Projects Section with VANTA.NET Background -->
 <section id="projects" class="py-16 bg-gray-50 text-black opacity-0 relative">
     <div id="vanta-net-projects" class="vanta-net"></div>
     <div class="container mx-auto px-4 max-w-6xl relative z-10">
-        <div class="p-8 rounded shadow" style="background: rgba(255,255,255,0.9);">
+        <div class="p-8 rounded shadow bg-white bg-opacity-90">
             <h1 class="text-3xl font-bold text-center mb-8 accent">Personal Projects</h1>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Project 1: FairShare -->
@@ -373,7 +388,7 @@
                 </div>
                 <!-- Project 4: Multiplayer Projectile Shooter Game -->
                 <div class="bg-white p-6 rounded shadow-xl border border-dk transition duration-300 hover:scale-105 hover:shadow-2xl">
-                    <img src="./assets/unity.jpeg" alt="Snowball Fight Game Preview"
+                    <img src="./assets/unity.jpeg" alt="Multiplayer Shooter Game Preview"
                          class="w-full h-48 object-cover rounded mb-4"/>
                     <h2 class="text-xl font-bold mb-2 accent">Multiplayer Projectile Shooter Game</h2>
                     <p class="mb-2 text-black">A real‑time multiplayer shooter featuring advanced physics‑based
@@ -403,8 +418,8 @@
                 </div>
             </div>
         </div>
-        <div class="absolute hover:text-[#B22222] bottom-4 right-4">
-            <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110"
+        <div class="absolute bottom-4 right-4">
+            <i class="fa fa-chevron-down fa-2x cursor-pointer transition-transform duration-300 hover:scale-110 hover:text-[#B22222]"
                onclick="location.href='#contact'"></i>
         </div>
     </div>
@@ -412,35 +427,33 @@
 
 <!-- Contact Section with VANTA.BIRDS Effect -->
 <section id="contact" class="py-16 bg-gray-50 text-black opacity-0 relative">
-    <!-- Dedicated VANTA container for Birds in Contact Section -->
     <div id="vanta-net-contact" class="vanta-net"></div>
     <div class="container mx-auto px-4 max-w-3xl relative z-10">
-        <div class="p-8 rounded shadow" style="background: rgba(255,255,255,0.9);">
+        <div class="p-8 rounded shadow bg-white bg-opacity-90">
             <h1 class="text-3xl font-bold text-center mb-8 accent">Contact Me</h1>
- <!-- Contact Info Grid - 2x2 on Mobile, 1 Row on Larger Screens -->
-<div class="grid grid-cols-2 gap-6 md:flex md:justify-center">
-    <a href="mailto:fardin.iqbal@stonybrook.edu" target="_blank"
-       class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
-        <i class="fa fa-envelope fa-2x"></i>
-        <span class="text-sm">fardin.iqbal@stonybrook.edu</span>
-    </a>
-    <a href="https://www.linkedin.com/in/fardin-iqbal-618460187/" target="_blank"
-       class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
-        <i class="fa fa-linkedin fa-2x"></i>
-        <span class="text-sm">LinkedIn</span>
-    </a>
-    <a href="https://github.com/FardinIqbal" target="_blank"
-       class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
-        <i class="fa fa-github fa-2x"></i>
-        <span class="text-sm">GitHub</span>
-    </a>
-    <a href="tel:(347)909-6827" target="_blank"
-       class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
-        <i class="fa fa-phone fa-2x"></i>
-        <span class="text-sm">(347) 909-6827</span>
-    </a>
-</div>
-
+            <!-- Contact Info Grid -->
+            <div class="grid grid-cols-2 gap-6 md:flex md:justify-center">
+                <a href="mailto:fardin.iqbal@stonybrook.edu" target="_blank"
+                   class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
+                    <i class="fa fa-envelope fa-2x"></i>
+                    <span class="text-sm">fardin.iqbal@stonybrook.edu</span>
+                </a>
+                <a href="https://www.linkedin.com/in/fardin-iqbal-618460187/" target="_blank"
+                   class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
+                    <i class="fa fa-linkedin fa-2x"></i>
+                    <span class="text-sm">LinkedIn</span>
+                </a>
+                <a href="https://github.com/FardinIqbal" target="_blank"
+                   class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
+                    <i class="fa fa-github fa-2x"></i>
+                    <span class="text-sm">GitHub</span>
+                </a>
+                <a href="tel:(347)909-6827" target="_blank"
+                   class="flex flex-col items-center space-y-2 p-2 rounded transition duration-300 hover:text-[#B22222] hover:scale-105">
+                    <i class="fa fa-phone fa-2x"></i>
+                    <span class="text-sm">(347) 909-6827</span>
+                </a>
+            </div>
             <!-- Contact Form -->
             <form action="mailto:fardin.iqbal@stonybrook.edu" method="post" enctype="text/plain"
                   class="space-y-4 bg-white p-6 rounded shadow-xl border border-dk mt-8">
@@ -469,11 +482,10 @@
                     Send Messages
                 </button>
             </form>
-
         </div>
     </div>
-    <div class="absolute bottom-4 right-4 hover:text-[#B22222]">
-        <i class="fa fa-chevron-up fa-2x cursor-pointer transition-transform duration-300 hover:scale-110"
+    <div class="absolute bottom-4 right-4">
+        <i class="fa fa-chevron-up fa-2x cursor-pointer transition-transform duration-300 hover:scale-110 hover:text-[#B22222]"
            onclick="location.href='#profile'"></i>
     </div>
 </section>
@@ -492,7 +504,6 @@
                 </li>
             </ul>
         </nav>
-
         <p>&copy; 2025 Fardin Iqbal. All Rights Reserved.</p>
     </div>
 </footer>
@@ -521,6 +532,7 @@
         });
     });
 </script>
+
 <!-- VANTA Globe Effect for Profile Section -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
@@ -535,11 +547,12 @@
         scale: 1.00,
         scaleMobile: 1.00,
         backgroundColor: 0xffffff,
-        color: 0x000000,
-        color2: 0x000000,
+        color: 0xB22222,
+        color2: 0xff6347,
         size: 1.00
     });
 </script>
+
 <!-- VANTA.NET Effects for About, Experience, and Projects Sections -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
@@ -552,12 +565,12 @@
         minHeight: 200.00,
         minWidth: 200.00,
         scale: 1.00,
-        scaleMobile: 0.50,
-        points: 6.00,
-        maxDistance: 26.00,
-        spacing: 19.00,
+        scaleMobile: 0.75,
+        points: 8.00,
+        maxDistance: 20.00,
+        spacing: 15.00,
         showDots: false,
-        color: 0x000000,
+        color: 0xB22222,
         backgroundColor: 0xffffff
     });
 
@@ -569,12 +582,12 @@
         minHeight: 200.00,
         minWidth: 200.00,
         scale: 1.00,
-        scaleMobile: 0.5,
-        points: 6.00,
-        maxDistance: 16.00,
+        scaleMobile: 0.75,
+        points: 8.00,
+        maxDistance: 18.00,
         spacing: 16.00,
         showDots: false,
-        color: 0x000000,
+        color: 0xB22222,
         backgroundColor: 0xffffff
     });
 
@@ -586,15 +599,16 @@
         minHeight: 200.00,
         minWidth: 200.00,
         scale: 1.00,
-        scaleMobile: 0.5,
-        points: 6.00,
-        maxDistance: 19.00,
-        spacing: 19.00,
+        scaleMobile: 0.75,
+        points: 8.00,
+        maxDistance: 18.00,
+        spacing: 16.00,
         showDots: false,
-        color: 0x000000,
+        color: 0xB22222,
         backgroundColor: 0xffffff
     });
 </script>
+
 <!-- VANTA.BIRDS Effect for Contact Section -->
 <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
 <script>
@@ -609,18 +623,16 @@
         scaleMobile: 1.00,
         backgroundColor: 0xffffff,
         color1: 0xB22222,
-        color2: 0xffffff,
+        color2: 0xff6347,
         colorMode: "lerp",
-        birdSize: 1.0,
+        birdSize: 1.2,
         wingSpan: 60.00,
         speedLimit: 1,
-        alignment: 20.00,
+        alignment: 1.00,
         cohesion: 0.5,
-        quantity: 3.00,
+        quantity: 3.0,
         separation: 100.00
     });
 </script>
-<!-- (Optional) Secondary VANTA.NET Effect for Contact Section (if needed) -->
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
 </body>
 </html>
